@@ -1,0 +1,332 @@
+<!-- Save as index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Build - Developer Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+  <style>
+    .hero-bg { background: linear-gradient(135deg,#6e8efb 0%,#a777e3 100%); }
+    .feature-card:hover { transform: translateY(-6px); transition: all .25s ease; }
+    .globe-container{ position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; opacity:0.18; }
+    .content-overlay{ position:relative; z-index:1; }
+    /* small code editor styling */
+    pre.code-preview { background: #0f172a; color: #e6eef8; padding: 12px; border-radius: 8px; overflow:auto; max-height: 320px; }
+  </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+
+  <!-- NAV -->
+  <nav class="bg-white shadow-sm fixed w-full z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 flex items-center">
+            <i data-feather="cpu" class="h-8 w-8 text-indigo-600"></i>
+            <span class="ml-2 text-xl font-bold text-indigo-600">AI Build</span>
+          </div>
+        </div>
+
+        <div class="hidden md:flex md:items-center md:space-x-6">
+          <a href="#home" class="navlink text-indigo-600 font-medium">Home</a>
+          <a href="#solutions" class="navlink text-gray-600 hover:text-gray-900">Solutions</a>
+          <a href="#pricing" class="navlink text-gray-600 hover:text-gray-900">Pricing</a>
+          <a href="#docs" class="navlink text-gray-600 hover:text-gray-900">Docs</a>
+          <a href="#about" class="navlink text-gray-600 hover:text-gray-900">About</a>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <button id="getStartedBtn" class="px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700">Get Started</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <main class="relative hero-bg text-white overflow-hidden pt-20">
+    <div class="globe-container" id="globe"></div>
+    <div class="max-w-7xl mx-auto content-overlay">
+      <section id="home" class="relative pt-16 pb-12 px-4 sm:px-6 lg:px-8 lg:pt-24 lg:pb-28">
+        <div class="text-center max-w-3xl mx-auto">
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold" data-aos="fade-down">
+            Build the future with <span class="text-indigo-200">Artificial Intelligence</span>
+          </h1>
+          <p class="mt-4 text-lg text-indigo-100" data-aos="fade-down" data-aos-delay="80">
+            Powerful developer tools, live demos, and real-time AI integration to accelerate your projects.
+          </p>
+
+          <div class="mt-8 flex justify-center gap-4" data-aos="fade-up" data-aos-delay="160">
+            <button id="startBuild" class="px-6 py-3 rounded-md bg-white text-indigo-600 font-medium">Start Building</button>
+            <button id="liveDemo" class="px-6 py-3 rounded-md bg-indigo-600 bg-opacity-60 text-white font-medium">Live Demo</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FEATURES -->
+  <section id="solutions" class="bg-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="lg:text-center mb-8">
+        <h2 class="text-base text-indigo-600 font-semibold uppercase">Features</h2>
+        <p class="mt-2 text-3xl font-extrabold text-gray-900">A better way to build with AI</p>
+        <p class="mt-3 text-lg text-gray-500">Everything you need to integrate AI into your applications.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-gray-50 p-6 rounded-lg feature-card">
+          <div class="flex items-start gap-4">
+            <div class="h-12 w-12 rounded-md bg-indigo-500 text-white flex items-center justify-center"><i data-feather="box"></i></div>
+            <div>
+              <h3 class="font-medium text-gray-900">Pre-built Models</h3>
+              <p class="mt-2 text-gray-600">Image recognition, NLP, summarization, embeddings and more — plug & play.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg feature-card">
+          <div class="flex items-start gap-4">
+            <div class="h-12 w-12 rounded-md bg-indigo-500 text-white flex items-center justify-center"><i data-feather="code"></i></div>
+            <div>
+              <h3 class="font-medium text-gray-900">Custom Training</h3>
+              <p class="mt-2 text-gray-600">Bring your dataset and fine-tune models on cloud infra (server-side).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg feature-card">
+          <div class="flex items-start gap-4">
+            <div class="h-12 w-12 rounded-md bg-indigo-500 text-white flex items-center justify-center"><i data-feather="zap"></i></div>
+            <div>
+              <h3 class="font-medium text-gray-900">Real-time APIs</h3>
+              <p class="mt-2 text-gray-600">Streaming responses over SSE and websockets for live chat and code generation.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg feature-card">
+          <div class="flex items-start gap-4">
+            <div class="h-12 w-12 rounded-md bg-indigo-500 text-white flex items-center justify-center"><i data-feather="shield"></i></div>
+            <div>
+              <h3 class="font-medium text-gray-900">Enterprise Security</h3>
+              <p class="mt-2 text-gray-600">Keys are stored server-side, encryption in transit, role-based access.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing + Short code panel -->
+  <section id="pricing" class="py-12 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 items-start">
+      <div>
+        <h2 class="text-2xl font-extrabold text-gray-900">Pricing & Quick Demo</h2>
+        <p class="mt-2 text-gray-600">Simple usage tiers. This panel demonstrates a short code snippet that users can preview, copy, or download.</p>
+
+        <div class="mt-6">
+          <label class="block text-sm font-medium text-gray-700">Sample snippet</label>
+          <pre id="sampleCode" class="code-preview">
+&lt;!-- Simple fetch to your server that proxies AI --&gt;
+async function generateCode(prompt){
+  const resp = await fetch('/api/ai/generate', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ prompt })
+  });
+  return resp.json();
+}
+          </pre>
+          <div class="mt-3 flex gap-2">
+            <button id="copyCode" class="px-3 py-2 rounded-md bg-indigo-600 text-white">Copy</button>
+            <button id="previewCode" class="px-3 py-2 rounded-md bg-white border">Preview in iframe</button>
+            <button id="downloadCode" class="px-3 py-2 rounded-md bg-gray-100">Download</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Developer quickstart + docs shortcuts -->
+      <div>
+        <h3 class="text-lg font-medium">Developer Docs</h3>
+        <p class="mt-2 text-gray-600">Quick links to start building: authentication, streaming, and example server code.</p>
+
+        <ul class="mt-4 space-y-3">
+          <li><button class="doc-link px-3 py-2 rounded-md bg-white border w-full text-left">Authentication (server-side)</button></li>
+          <li><button class="doc-link px-3 py-2 rounded-md bg-white border w-full text-left">Streaming (SSE) & Websockets</button></li>
+          <li><button class="doc-link px-3 py-2 rounded-md bg-white border w-full text-left">Code generation & preview</button></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Docs / Realtime chat -->
+  <section id="docs" class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8">
+      <div>
+        <h2 class="text-2xl font-extrabold">Docs & How AI Works</h2>
+        <p class="mt-2 text-gray-600">High-level docs and developer notes. Use the buttons to open detailed guides.</p>
+
+        <div class="mt-6 space-y-4">
+          <div class="p-4 bg-white rounded shadow">
+            <h4 class="font-medium">How it works</h4>
+            <p class="mt-2 text-gray-600">Front-end sends requests to the server; server calls the AI provider using a secret key; server streams back events to the browser so UI is realtime and responsive.</p>
+          </div>
+          <div class="p-4 bg-white rounded shadow">
+            <h4 class="font-medium">Best practices</h4>
+            <ul class="mt-2 list-disc pl-5 text-gray-600">
+              <li>Do not put keys in client code</li>
+              <li>Validate prompts and user inputs server-side</li>
+              <li>Rate limit and add usage quotas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Realtime Chat + Code Generator -->
+      <div class="bg-white p-4 rounded shadow">
+        <h3 class="font-medium">Realtime AI Assistant</h3>
+        <div class="mt-3">
+          <textarea id="aiPrompt" rows="4" class="w-full border rounded p-2" placeholder="Ask the AI to generate or explain code..."></textarea>
+          <div class="mt-2 flex gap-2">
+            <button id="sendPrompt" class="px-4 py-2 rounded bg-indigo-600 text-white">Ask AI</button>
+            <button id="stopStream" class="px-4 py-2 rounded bg-gray-200">Stop</button>
+          </div>
+        </div>
+
+        <div class="mt-4 border rounded p-3 max-h-80 overflow-auto" id="aiStreamOutput" style="white-space:pre-wrap"></div>
+
+        <div class="mt-3 text-sm text-gray-500">
+          <strong>Note:</strong> This UI expects a server endpoint `/api/ai/stream` that streams SSE messages (event: message) containing text chunks. See server example.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="bg-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-extrabold">About</h2>
+      <p class="mt-2 text-gray-600">AI Build — developer platform for building smart, realtime AI-powered applications.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-50 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500">
+      &copy; <span id="year"></span> AI Build — Keep your keys on the server, not the browser.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    AOS.init();
+    feather.replace();
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Vanta globe init
+    try {
+      VANTA.GLOBE({
+        el: "#globe",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0x7c8efb,
+        backgroundColor: 0x6e8efb,
+        size: 1.00
+      });
+    } catch(e){ console.warn('Vanta not initialized', e); }
+
+    // NAV smooth scroll
+    document.querySelectorAll('.navlink').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const href = a.getAttribute('href');
+        const el = document.querySelector(href);
+        if(el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Short code panel: copy/preview/download
+    const sampleCodeEl = document.getElementById('sampleCode');
+    document.getElementById('copyCode').addEventListener('click', async ()=>{
+      try {
+        await navigator.clipboard.writeText(sampleCodeEl.textContent.trim());
+        alert('Code copied to clipboard');
+      } catch (err) {
+        alert('Copy failed: ' + err.message);
+      }
+    });
+
+    document.getElementById('previewCode').addEventListener('click', ()=>{
+      // open preview in new tab using data URL
+      const html = sampleCodeEl.textContent;
+      const blob = new Blob([html], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      window.open(url, '_blank');
+    });
+
+    document.getElementById('downloadCode').addEventListener('click', ()=>{
+      const text = sampleCodeEl.textContent;
+      const blob = new Blob([text], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'sample-snippet.js';
+      a.click();
+    });
+
+    // Realtime AI assistant (SSE)
+    let evtSource = null;
+    const output = document.getElementById('aiStreamOutput');
+    document.getElementById('sendPrompt').addEventListener('click', ()=>{
+      const prompt = document.getElementById('aiPrompt').value.trim();
+      if(!prompt) { alert('Write a prompt first'); return; }
+      // Close any existing source
+      if(evtSource) { evtSource.close(); evtSource = null; }
+
+      output.textContent = '';
+      // Start SSE connection to server endpoint
+      // Server path: /api/ai/stream (POST-like initialization via fetch then SSE token)
+      // Simpler pattern: call POST to /api/ai/stream-init to get a session id, then connect to /api/ai/stream/:id
+      // For demo simplicity we call /api/ai/stream?prompt=... (GET encoded) - your server may accept POST for production.
+      const url = '/api/ai/stream?prompt=' + encodeURIComponent(prompt);
+
+      evtSource = new EventSource(url);
+      evtSource.onmessage = (e) => {
+        // Each message contains a chunk of text to append
+        output.textContent += e.data;
+        output.scrollTop = output.scrollHeight;
+      };
+      evtSource.onerror = (err) => {
+        console.error('SSE error', err);
+        evtSource.close();
+        evtSource = null;
+      };
+    });
+
+    document.getElementById('stopStream').addEventListener('click', ()=>{
+      if(evtSource) { evtSource.close(); evtSource = null; output.textContent += '\n\n[stream stopped]'; }
+    });
+
+    // Buttons hooking
+    document.getElementById('getStartedBtn').addEventListener('click', ()=> document.querySelector('#pricing').scrollIntoView({behavior:'smooth'}));
+    document.getElementById('startBuild').addEventListener('click', ()=> window.location.hash = '#docs');
+    document.getElementById('liveDemo').addEventListener('click', ()=> window.location.hash = '#docs');
+
+    // small UX: doc-link open sample modal (simple alert for now)
+    document.querySelectorAll('.doc-link').forEach(btn=>{
+      btn.addEventListener('click', ()=> alert('Open developer docs (implement route /docs).'));
+    });
+
+    // Helpful hint: never include API keys in front-end. Store server-side.
+  </script>
+</body>
+</html>
